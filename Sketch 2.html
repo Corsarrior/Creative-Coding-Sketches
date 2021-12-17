@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head></head>   
+    <body>
+        <canvas width="600" height="600"></canvas>
+        <script>
+            let canvas = document.querySelector('canvas')
+            let context = canvas.getContext('2d')
+
+            context.lineWidth = 4   
+            context.beginPath()
+            context.rect(100, 100, 380, 400)
+            context.stroke()
+            let r = 25;
+            let width = r*2;
+            let height = r*2;
+            let gap = 25;
+            let x = 140;
+            let y = 150;            
+            
+            for (let j = 0; j < 5; j++){
+                y = 150 + (height + gap) * j; 
+                for (let k = 0; k < 5; k++){
+                    x = 140 + (width + gap) * k;  
+                    context.beginPath();
+                    context.arc(x, y, r, 0, Math.PI * 2);
+                    context.stroke(); 
+                    
+                    if(Math.random() > 0.1){
+                        context.beginPath();
+                        context.arc(x, y, r - 8, 0, (Math.PI * 2) * (Math.random()));
+                        context.stroke();   
+                    }
+                }
+            }
+            
+        </script>
+    </body>
+    
+</html>

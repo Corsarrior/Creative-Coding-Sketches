@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head></head>   
+    <body>
+        <canvas width="600" height="600"></canvas>
+        <script>
+            let canvas = document.querySelector('canvas')
+            let context = canvas.getContext('2d')
+
+            context.lineWidth = 4   
+            context.beginPath()
+            context.rect(100, 100, 400, 400)
+            context.stroke()
+            let r = 100
+            let fill = true
+            for (let x = 0; x < 10; x++){
+                
+                //context.fillStyle
+                context.beginPath()
+                context.arc(300, 300, r, 0, Math.PI * 2)
+                context.stroke()
+                if (fill){
+                     context.fill()
+                 }
+                 else {
+                     context.strokeStyle = 'white'
+                     context.stroke()
+                 }
+                r -= 10
+                fill = !fill
+            }
+            
+        </script>
+    </body>
+    
+</html>
